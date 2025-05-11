@@ -1,0 +1,47 @@
+type Show {
+    showId: ID! # GraphQL uses ID type for unique identifiers
+    type: String!
+    title: String!
+    director: String
+    cast: String
+    country: String
+    dateAdded: String # Or use a custom Date scalar if needed
+    releaseYear: Int
+    rating: String
+    duration: String
+    listedIn: String
+    description: String
+}
+
+# Input type for adding a new show
+input AddShowInput {
+    showId: ID # Allow providing ID, or let backend generate
+    type: String!
+    title: String!
+    director: String
+    cast: String
+    country: String
+    dateAdded: String
+    releaseYear: Int
+    rating: String
+    duration: String
+    listedIn: String
+    description: String
+}
+
+
+type Query {
+    # Get a single show by its ID
+    getShowById(showId: ID!): Show
+
+    # Get all shows
+    getAllShows: [Show!] # Returns a list of non-null Shows
+
+    # Optional: Get shows by type
+    getShowsByType(type: String!): [Show!]!
+}
+
+type Mutation {
+    # Add a new show
+    addShow(input: AddShowInput!): Show! # Returns the created show
+}

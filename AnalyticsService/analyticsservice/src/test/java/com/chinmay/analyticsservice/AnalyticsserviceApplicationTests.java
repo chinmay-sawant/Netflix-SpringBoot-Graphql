@@ -1,4 +1,4 @@
-package com.chinmay.analyticsservice.analyticsservice;
+package com.chinmay.analyticsservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
